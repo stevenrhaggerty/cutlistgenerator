@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
+    <script src="./javascripts/math.min.js"></script>
+    <script src="./javascripts/measure.js"></script>
     <script src="./javascripts/jquery-2.1.4.min.js"></script>
     <script src="./javascripts/knockout-3.4.0.js"></script>
     <script src="./javascripts/knockout-extenders.js"></script>
@@ -38,7 +40,7 @@
           <table>
             <thead>
               <tr>
-                <th>Length (in)</th>
+                <th>Length</th>
                 <th>Quantity</th>
               </tr>
             </thead>
@@ -56,7 +58,7 @@
           <table>
             <thead>
               <tr>
-                <th>Length (in)</th>
+                <th>Length</th>
                 <th>Quantity</th>
                 <th>Name (optional)</th>
               </tr>
@@ -76,12 +78,12 @@
           <p>Total Board Length (in): <span data-bind="text: available_board_length">0</span></p>
           
           <ul data-bind="foreach: final_out">
-                <li>
-                  length: <span data-bind="text: board_length"></span> remaining: <span data-bind="text: remaining"></span>
+                <span data-bind="if: included.length > 0"><li>
+                  board: <strong><span data-bind="text: board_length"></span></strong> left over: <span data-bind="text: remaining"></span>
                   <ul data-bind="foreach: included">
-                    <li data-bind="text: cut_length"></li>
+                    <li data-bind="text: cut"></li>
                   </ul>
-                </li>
+                </li></span>
           </ul>
 
         </section>
